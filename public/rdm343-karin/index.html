@@ -198,9 +198,91 @@ body { font-family: 'Inter', sans-serif; font-size: 10pt; color: var(--text); ba
   .eett-page { page-break-before: always; }
 }
 
+/* ============== LOGIN OVERLAY ============== */
+body.locked { overflow: hidden; }
+body.locked > .page,
+body.locked > .container,
+body.locked > .topbar,
+body.locked > main { display: none !important; }
+.login-overlay {
+  position: fixed; inset: 0; background: #FFFFFF; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  padding: 24px; overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+body.locked .login-overlay { display: flex; }
+.login-card {
+  width: 100%; max-width: 420px; background: #FFFFFF;
+  border-radius: 4px; padding: 48px 40px 40px;
+  box-shadow: 0 10px 40px rgba(28,60,68,0.08);
+  border-top: 3px solid #1C3C44; text-align: center;
+}
+.login-title {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #6B7280; margin: 0 0 10px;
+}
+.login-card h2 {
+  font-size: 22px; font-weight: 700; color: #1C3C44;
+  margin: 0 0 6px; letter-spacing: -0.01em;
+}
+.login-sub {
+  font-size: 13px; color: #6B7280; margin: 0 0 28px; line-height: 1.5;
+}
+.login-form { display: flex; flex-direction: column; gap: 14px; }
+.login-input {
+  width: 100%; padding: 14px 16px;
+  border: 1px solid rgba(28,60,68,0.15); border-radius: 3px;
+  font-size: 15px; font-family: inherit; color: #1A1A1A; background: #FFFFFF;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+.login-input:focus {
+  outline: none; border-color: #1C3C44;
+  box-shadow: 0 0 0 3px rgba(28,60,68,0.08);
+}
+.login-btn {
+  width: 100%; padding: 14px 16px; background: #1C3C44; color: #FFFFFF;
+  border: none; border-radius: 3px; font-size: 14px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+  font-family: inherit;
+}
+.login-btn:hover { background: #14272d; }
+.login-btn:active { transform: scale(0.98); }
+.login-error {
+  color: #B33A3A; font-size: 12px; margin-top: 4px; min-height: 16px;
+  text-align: left; padding-left: 2px;
+}
+.login-footer {
+  margin-top: 28px; padding-top: 20px;
+  border-top: 1px solid rgba(28,60,68,0.15);
+  font-size: 10px; color: #6B7280; letter-spacing: 0.03em;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
 </style>
 </head>
-<body>
+<body class="locked">
+
+<!-- LOGIN OVERLAY -->
+<div class="login-overlay">
+  <div class="login-card">
+    <p class="login-title">Mod Journey · Propuesta Comercial</p>
+    <h2>RDM343 · Karin Thomsen</h2>
+    <p class="login-sub">Ingresa la clave de acceso compartida para visualizar la propuesta.</p>
+    <form class="login-form" onsubmit="return checkPassword(event)">
+      <input id="passwordInput" class="login-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
+      <button class="login-btn" type="submit">Acceder</button>
+      <div id="loginError" class="login-error"></div>
+    </form>
+    <div class="login-footer">© 2026 Mod Journey SPA</div>
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════════
      ÍNDICE
@@ -956,6 +1038,43 @@ body { font-family: 'Inter', sans-serif; font-size: 10pt; color: var(--text); ba
     lx0=null;
   },{passive:true});
 })();
+</script>
+
+<script>
+  // ============ LOGIN GATE ============
+  (function(){
+    var ACCESS_KEY = 'rdm343';
+    var STORAGE_KEY = 'rdm343_karin_auth';
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === ACCESS_KEY) {
+        document.body.classList.remove('locked');
+      }
+    } catch(e) {}
+    document.addEventListener('DOMContentLoaded', function() {
+      var inp = document.getElementById('passwordInput');
+      if (inp && document.body.classList.contains('locked')) {
+        setTimeout(function(){ inp.focus(); }, 100);
+      }
+    });
+    window.checkPassword = function(event) {
+      event.preventDefault();
+      var input = document.getElementById('passwordInput');
+      var errorEl = document.getElementById('loginError');
+      var value = (input.value || '').trim().toLowerCase();
+      if (value === ACCESS_KEY) {
+        try { localStorage.setItem(STORAGE_KEY, ACCESS_KEY); } catch(e){}
+        document.body.classList.remove('locked');
+        errorEl.textContent = '';
+      } else {
+        errorEl.textContent = 'Clave incorrecta. Inténtalo nuevamente.';
+        input.value = '';
+        input.focus();
+        input.style.animation = 'none';
+        setTimeout(function(){ input.style.animation = 'shake 0.3s ease-in-out'; }, 10);
+      }
+      return false;
+    };
+  })();
 </script>
 </body>
 </html>
