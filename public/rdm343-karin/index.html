@@ -212,21 +212,27 @@ body.locked > main { display: none !important; }
 }
 body.locked .login-overlay { display: flex; }
 .login-card {
-  width: 100%; max-width: 420px; background: #FFFFFF;
-  border-radius: 4px; padding: 48px 40px 40px;
+  width: 100%; max-width: 460px; background: #FFFFFF;
+  border-radius: 6px; padding: 56px 44px 36px;
   box-shadow: 0 10px 40px rgba(28,60,68,0.08);
-  border-top: 3px solid #1C3C44; text-align: center;
+  text-align: center;
+}
+.login-logo { display: block; margin: 0 auto 14px; width: 64px; height: auto; }
+.login-brand {
+  font-size: 18px; font-weight: 700; letter-spacing: 0.22em;
+  color: #1C3C44; margin: 0 0 6px;
 }
 .login-title {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: #6B7280; margin: 0 0 10px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.28em;
+  text-transform: uppercase; color: #9CA3AF; margin: 0 0 44px;
 }
 .login-card h2 {
-  font-size: 22px; font-weight: 700; color: #1C3C44;
-  margin: 0 0 6px; letter-spacing: -0.01em;
+  font-size: 28px; font-weight: 700; color: #1C3C44;
+  margin: 0 0 16px; letter-spacing: -0.01em;
 }
 .login-sub {
-  font-size: 13px; color: #6B7280; margin: 0 0 28px; line-height: 1.5;
+  font-size: 14px; color: #6B7280; margin: 0 auto 32px;
+  line-height: 1.55; max-width: 340px;
 }
 .login-form { display: flex; flex-direction: column; gap: 14px; }
 .login-input {
@@ -241,11 +247,11 @@ body.locked .login-overlay { display: flex; }
   box-shadow: 0 0 0 3px rgba(28,60,68,0.08);
 }
 .login-btn {
-  width: 100%; padding: 14px 16px; background: #1C3C44; color: #FFFFFF;
-  border: none; border-radius: 3px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  width: 100%; padding: 16px; background: #1C3C44; color: #FFFFFF;
+  border: none; border-radius: 4px; font-size: 14px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
   transition: background 0.15s ease, transform 0.05s ease;
-  font-family: inherit;
+  font-family: inherit; margin-top: 4px;
 }
 .login-btn:hover { background: #14272d; }
 .login-btn:active { transform: scale(0.98); }
@@ -271,15 +277,20 @@ body.locked .login-overlay { display: flex; }
 <!-- LOGIN OVERLAY -->
 <div class="login-overlay">
   <div class="login-card">
-    <p class="login-title">Mod Journey · Propuesta Comercial</p>
-    <h2>RDM343 · Karin Thomsen</h2>
-    <p class="login-sub">Ingresa la clave de acceso compartida para visualizar la propuesta.</p>
+    <svg class="login-logo" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Mod Journey">
+      <path d="M3,72 L36,12 L69,72 L55,72 L36,38 L17,72 Z" fill="#1C3C44"/>
+      <path d="M51,72 L84,12 L117,72 L103,72 L84,38 L65,72 Z" fill="#1C3C44"/>
+    </svg>
+    <p class="login-brand">MOD JOURNEY</p>
+    <p class="login-title">Portal de Propuestas</p>
+    <h2>Acceso Privado</h2>
+    <p class="login-sub">Este portal contiene información confidencial. Por favor ingresa la clave de acceso.</p>
     <form class="login-form" onsubmit="return checkPassword(event)">
       <input id="passwordInput" class="login-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
-      <button class="login-btn" type="submit">Acceder</button>
+      <button class="login-btn" type="submit">Ingresar</button>
       <div id="loginError" class="login-error"></div>
     </form>
-    <div class="login-footer">© 2026 Mod Journey SPA</div>
+    <div class="login-footer">© 2021–2026 Mod Journey. Todos los derechos reservados.</div>
   </div>
 </div>
 
