@@ -348,10 +348,10 @@ body.locked .login-overlay { display: flex; }
 <table class="tbl">
   <thead><tr><th>Ítem</th><th class="r">Superficie m²</th></tr></thead>
   <tbody>
-    <tr><td>M² Interiores</td><td class="r">136,00</td></tr>
-    <tr><td>M² Terrazas</td><td class="r">45,20</td></tr>
-    <tr class="t-sub"><td>Total Superficie</td><td class="r">181,20</td></tr>
-    <tr class="t-base"><td>Superficie Ponderada (base cálculo)</td><td class="r">158,60</td></tr>
+    <tr><td>M² Interiores</td><td class="r">195,26</td></tr>
+    <tr><td>M² Terrazas</td><td class="r">80,63</td></tr>
+    <tr class="t-sub"><td>Total Superficie</td><td class="r">275,89</td></tr>
+    <tr class="t-base"><td>Superficie Ponderada (base cálculo)</td><td class="r">235,58</td></tr>
   </tbody>
 </table>
 
@@ -360,13 +360,13 @@ body.locked .login-overlay { display: flex; }
 <table class="tbl">
   <thead><tr><th>Partida</th><th class="r">Monto UF</th></tr></thead>
   <tbody>
-    <tr><td>Materiales</td><td class="r">2.795,9</td></tr>
-    <tr><td>Mano de Obra</td><td class="r">2.388,5</td></tr>
-    <tr><td>Servicios Generales</td><td class="r">502,6</td></tr>
-    <tr class="t-grand"><td>Total Neto sin IVA</td><td class="r">5.687,0</td></tr>
+    <tr><td>Materiales</td><td class="r">3.842,2</td></tr>
+    <tr><td>Mano de Obra</td><td class="r">3.009,2</td></tr>
+    <tr><td>Servicios Generales</td><td class="r">686,6</td></tr>
+    <tr class="t-grand"><td>Total Neto sin IVA</td><td class="r">7.538,0</td></tr>
   </tbody>
 </table>
-<div class="nota"><strong>Nota:</strong> GG y Utilidad prorrateados en las tres partidas. Precio Neto sin IVA sobre superficie ponderada de 158,60 m².</div>
+<div class="nota"><strong>Nota:</strong> GG (14%) y Utilidad (15%) prorrateados en las tres partidas. Precio Neto sin IVA sobre superficie ponderada de 235,58 m² (UF 32,0/m²).</div>
 
 <!-- ══ 4. CALENDARIO ══ -->
 <div class="sec-head pb">3. Calendario de Pagos <small>— Casa · Estados de Avance en UF</small></div>
@@ -442,34 +442,34 @@ body.locked .login-overlay { display: flex; }
 
 <!-- ══ 6. IVA PACTADO ══ -->
 <div class="sec-head pb">5. Cálculo de IVA Pactado</div>
-<p style="font-size:9pt;color:var(--muted);margin-bottom:10px">Casa (proyecto completo). IVA pactado 9,5%.</p>
+<p style="font-size:9pt;color:var(--muted);margin-bottom:10px">Casa (proyecto completo). IVA pactado 11%.</p>
 <table class="tbl" style="margin-bottom:12px;margin-top:14px">
   <thead>
     <tr>
       <th style="text-align:left;width:44%">Concepto</th>
       <th class="r">IVA estándar 19%</th>
-      <th class="r">IVA pactado 9,5%</th>
+      <th class="r">IVA pactado 11%</th>
     </tr>
   </thead>
   <tbody>
     <tr class="t-base"><td colspan="3">Lo que paga el cliente</td></tr>
-    <tr><td>Precio neto acordado</td><td class="r">UF 5.687,0</td><td class="r">UF 5.687,0</td></tr>
-    <tr><td>Monto IVA</td><td class="r">UF 1.080,5</td><td class="r">UF 540,2</td></tr>
-    <tr class="t-sub"><td>Total que paga el cliente</td><td class="r">UF 6.767,5</td><td class="r">UF 6.227,0</td></tr>
+    <tr><td>Precio neto acordado</td><td class="r">UF 7.538,0</td><td class="r">UF 7.538,0</td></tr>
+    <tr><td>Monto IVA</td><td class="r">UF 1.432,2</td><td class="r">UF 829,2</td></tr>
+    <tr class="t-sub"><td>Total que paga el cliente</td><td class="r">UF 8.970,2</td><td class="r">UF 8.367,2</td></tr>
     <tr class="t-hi">
       <td><strong>Ahorro con IVA pactado</strong></td>
       <td class="r">—</td>
-      <td class="r" style="color:#1B7A3C"><strong>UF 540,2</strong></td>
+      <td class="r" style="color:#1B7A3C"><strong>UF 603,0</strong></td>
     </tr>
     <tr class="t-base"><td colspan="3">Cómo se factura</td></tr>
-    <tr><td>IVA cobrado al cliente</td><td class="r">UF 1.080,5</td><td class="r">UF 540,2</td></tr>
-    <tr><td>Neto que aparece en facturas <span class="sub-d">IVA ÷ 19%</span></td><td class="r">UF 5.687,0</td><td class="r">UF 2.843,2</td></tr>
-    <tr class="t-sub"><td>Total facturado</td><td class="r">UF 6.767,5</td><td class="r">UF 3.383,4</td></tr>
-    <tr class="t-iva"><td>Diferencia no documentada en factura</td><td class="r">UF 0,0</td><td class="r">UF 2.843,8</td></tr>
+    <tr><td>IVA cobrado al cliente</td><td class="r">UF 1.432,2</td><td class="r">UF 829,2</td></tr>
+    <tr><td>Neto que aparece en facturas <span class="sub-d">IVA ÷ 19%</span></td><td class="r">UF 7.538,0</td><td class="r">UF 4.364,2</td></tr>
+    <tr class="t-sub"><td>Total facturado</td><td class="r">UF 8.970,2</td><td class="r">UF 5.193,4</td></tr>
+    <tr class="t-iva"><td>Diferencia no documentada en factura</td><td class="r">UF 0,0</td><td class="r">UF 3.173,8</td></tr>
   </tbody>
 </table>
 <div class="nota" style="margin-bottom:20px">
-  <strong>¿Cómo funciona el IVA pactado?</strong> El cliente paga UF 6.227,0 en total (neto UF 5.687,0 + IVA 9,5% = UF 540,2). Las facturas se emiten con IVA al 19% sobre un neto menor: <strong>UF 540,2 ÷ 19% = neto facturado UF 2.843,2</strong>. La diferencia (UF 2.843,8) no se documenta en factura. Ahorro frente a IVA estándar 19%: <strong>UF 540,2</strong>.
+  <strong>¿Cómo funciona el IVA pactado?</strong> El cliente paga UF 8.367,2 en total (neto UF 7.538,0 + IVA 11% = UF 829,2). Las facturas se emiten con IVA al 19% sobre un neto menor: <strong>UF 829,2 ÷ 19% = neto facturado UF 4.364,2</strong>. La diferencia (UF 3.173,8) no se documenta en factura. Ahorro frente a IVA estándar 19%: <strong>UF 603,0</strong>.
 </div>
 
 <!-- ══ 7. RESERVA ══ -->
